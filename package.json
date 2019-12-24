@@ -1,9 +1,10 @@
 {
-	"name": "python-linter",
+	"name": "python-linters",
+	"main": "./lib/index.js",
 	"version": "1.0.1",
 	"description": "This package is a All-In-One linter for python code, it internally use multiple linting tools",
 	"license": "MIT",
-	"repository": "https://github.com/elarivie/atom-python-linter",
+	"repository": "https://github.com/elarivie/atom-python-linters",
 	"author": {
 		"name": "Éric Larivière",
 		"email": "ericlariviere@hotmail.com"
@@ -27,23 +28,22 @@
 		"PEP 257",
 		"PEP 484"
 	],
-	"atomTestRunner": "atom-mocha",
 	"dependencies": {
 		"atom-linter": "^10.0.0",
-		"atom-package-deps": "^5.0.0",
+		"atom-package-deps": "^5.1.0",
 		"mapped-disposable": "^1.0.3",
-		"named-js-regexp": "^1.3.5"
+		"named-js-regexp": "^1.3.5",
+		"npm-check-updates": "^4.0.1"
 	},
 	"devDependencies": {
-		"atom-mocha": "^2.2.0",
-		"xo": "^0.24.0"
+		"xo": "^0.25.3",
+		"jasmine-fix": "1.3.1"
 	},
 	"package-deps": [
 		"linter"
 	],
 	"xo": {
 		"globals": [
-			"AtomMocha",
 			"Chai",
 			"after",
 			"afterEach",
@@ -55,12 +55,16 @@
 			"document",
 			"expect",
 			"it",
-			"when"
+			"when",
+			"waitsForPromise",
+			"window"
 		],
 		"ignores": [
 			"atom/**"
 		],
 		"rules": {
+			"yoda": ["error", "always", { "onlyEquality": false }],
+			"no-unused-vars": ["error", { "args": "none" }],
 			"import/prefer-default-export": "off",
 			"max-nested-callbacks": "off",
 			"camelcase": [
