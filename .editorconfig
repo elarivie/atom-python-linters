@@ -11,10 +11,6 @@ insert_final_newline = true
 [*.bat]
 end_of_line = crlf
 
-[*.json]
-indent_style = space
-indent_size = 2
-
 [*.md]
 trim_trailing_whitespace = false
 

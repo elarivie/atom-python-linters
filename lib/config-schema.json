@@ -1,55 +1,86 @@
 {
-	"pythonExecutablePath": {
-		"description": "Python executable path.",
-		"type": "string",
-		"default": "python3",
-		"order": 1
-	},
-	"pythonPath": {
-		"description": "PYTHONPATH environment variable.",
-		"type": "string",
-		"default": "",
-		"order": 2
-	},
-	"configPath": {
-		"description": "Path to a configuration file 'setup.cfg'.",
-		"type": "string",
-		"default": "%PROJECT_PATH/setup.cfg",
-		"order": 3
-	},
-  "lintTrigger": {
-		"type": "string",
-		"default": "LintOnFileSave",
-		"enum": [
-			{"value": "LintOnFileSave", "description": "Lint on file save"},
-			{"value": "LintAsYouType", "description": "Lint as you type"}
-		],
-		"description": "Specify the lint trigger",
-		"order": 4
-	},
-	"useLintTool": {
+	"path": {
+		"title": "Paths",
+		"order": 1,
+		"description": "When Specifying paths the following placeholders are available:<dl><dt>%PROJECT_PATH</dt><dd>The atom project path</dd><dt>%PROJECT_NAME</dt><dd>The atom project name</dd><dt>%FILE_DIR</dt><dd>The directory path of the file being linted</dd></dl>",
 		"type": "object",
-		"order": 5,
+		"properties": {
+			"pythonExecutable": {
+				"title": "Python Executable path",
+				"description": "Python executable path.",
+				"type": "string",
+				"default": "python3",
+				"order": 1
+			},
+			"python": {
+				"title": "PYTHONPATH",
+				"description": "PYTHONPATH environment variable.",
+				"type": "string",
+				"default": "",
+				"order": 2
+			},
+			"config": {
+				"title": "Configuration file path",
+				"description": "Path to a configuration file 'setup.cfg'.",
+				"type": "string",
+				"default": "%PROJECT_PATH/setup.cfg",
+				"order": 3
+			}
+		}
+	},
+	"lintTrigger": {
+		"title": "Lint Triggers",
+		"order": 2,
+		"description": "Specify lint trigger for each lint tool",
+		"type": "object",
 		"properties": {
 			"flake8": {
-				"description": "Use flake8?",
-				"type": "boolean",
-				"default": true
+				"title": "Flake8",
+				"type": "string",
+				"default": "LintAsYouType",
+				"enum": [
+					{"value": "LintAsYouType", "description": "Lint as you type"},
+					{"value": "LintOnFileSave", "description": "Lint on file save"},
+					{"value": "Never", "description": "Never"}
+				],
+				"description": "Specify the lint trigger",
+				"order": 1
 			},
 			"mypy": {
-				"description": "Use mypy?",
-				"type": "boolean",
-				"default": true
+				"title": "Mypy",
+				"type": "string",
+				"default": "LintOnFileSave",
+				"enum": [
+					{"value": "LintAsYouType", "description": "Lint as you type"},
+					{"value": "LintOnFileSave", "description": "Lint on file save"},
+					{"value": "Never", "description": "Never"}
+				],
+				"description": "Specify the lint trigger",
+				"order": 2
 			},
 			"pydocstyle": {
-				"description": "Use pydocstyle?",
-				"type": "boolean",
-				"default": true
+				"title": "Pydocstyle",
+				"type": "string",
+				"default": "LintAsYouType",
+				"enum": [
+					{"value": "LintAsYouType", "description": "Lint as you type"},
+					{"value": "LintOnFileSave", "description": "Lint on file save"},
+					{"value": "Never", "description": "Never"}
+				],
+				"description": "Specify the lint trigger",
+				"order": 3
 			},
 			"pylint": {
-				"description": "Use pylint?",
-				"type": "boolean",
-				"default": true
+				"title": "Pylint",
+				"type": "string",
+				"default": "LintAsYouType",
+				"enum": [
+					{"value": "LintAsYouType", "description": "Lint as you type"},
+					{"value": "LintOnFileSave", "description": "Lint on file save"},
+					{"value": "Never", "description": "Never"}
+				],
+				"description": "Specify the lint trigger",
+				"order": 4
 			}
 		}
 	}

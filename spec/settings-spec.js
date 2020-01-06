@@ -1,14 +1,13 @@
-'use babel';
+'use strict';
 
 // This spec file validates:
 //  * That the settings are correctly kept in sync with atom settings.
 //
 //  If it fails:
-//  * Validate the settings declaration & observation within index.js.
+//  * Validate the settings declaration & observation within lib/main.js.
 
-import {
-	it, beforeEach
-} from 'jasmine-fix';
+// eslint-disable-next-line no-unused-vars
+const {it, fit, wait, beforeEach, afterEach} = require('jasmine-fix');
 
 describe('when changing python-linters atom settings', () => {
 	beforeEach(async () => {
@@ -24,100 +23,29 @@ describe('when changing python-linters atom settings', () => {
 		}
 	});
 
-	it('Should reflect Atom setting python-linters > PythonExecutablePath … changes to internal settings.js', () => {
-		const originalPythonExecutablePath = atom.config.get('python-linters.pythonExecutablePath');
-		try {
-			atom.config.set('python-linters.pythonExecutablePath', 'XXX');
-			const settings = require('../lib/settings.js');
-			expect(settings.rawPythonExecutablePath).toBe('XXX');
-		} finally {
-			atom.config.set('python-linters.pythonExecutablePath', originalPythonExecutablePath);
-		}
+	it('Should offer a temp folder', () => {
+		const settings = require('../lib/settings.js');
+		expect(settings.rawTempFolderPath.length).not.toEqual(0);
+
+		// Check on disk, it should exists.
+		const fs = require('fs');
+		expect(fs.lstatSync(settings.rawTempFolderPath).isDirectory()).toBe(true);
 	});
 
-	it('Should reflect Atom setting python-linters > PythonPath … changes to internal settings.js', () => {
-		const originalPythonPath = atom.config.get('python-linters.pythonPath');
-		try {
-			atom.config.set('python-linters.pythonPath', 'XXX');
-			const settings = require('../lib/settings.js');
-			expect(settings.rawPythonPath).toBe('XXX');
-		} finally {
-			atom.config.set('python-linters.pythonPath', originalPythonPath);
-		}
-	});
+	it('Should reflect Atom setting python-linters > … changes to internal settings.js', () => {
+		const settings = require('../lib/settings.js');
+		const settingsName = [settings.sPythonPath, settings.sPythonExecutable, settings.sConfig, settings.sLintTriggerFlake8, settings.sLintTriggerMypy, settings.sLintTriggerPydocstyle, settings.sLintTriggerPylint];
 
-	it('Should reflect Atom setting python-linters > ConfigPath … changes to internal settings.js', () => {
-		const originalConfigPath = atom.config.get('python-linters.configPath');
-		try {
-			atom.config.set('python-linters.configPath', 'XXX');
-			const settings = require('../lib/settings.js');
-			expect(settings.rawConfigPath).toBe('XXX');
-		} finally {
-			atom.config.set('python-linters.configPath', originalConfigPath);
-		}
-	});
-
-	it('Should reflect Atom setting python-linters > LintTrigger … changes to internal settings.js', () => {
-		const originalLintTrigger = atom.config.get('python-linters.lintTrigger');
-		for (const currentLintTrigger of ['LintOnFileSave', 'LintAsYouType']) {
+		for (const settingName of settingsName) {
+			const originalValue = atom.config.get(settingName);
 			try {
-				atom.config.set('python-linters.lintTrigger', currentLintTrigger);
-				const settings = require('../lib/settings.js');
-				expect(settings.rawLintTrigger).toBe(currentLintTrigger);
+				for (const currentValue of ['LintAsYouType', 'LintOnFileSave', 'Never']) {
+					atom.config.set(settingName, currentValue);
+					expect(atom.config.get(settingName)).toEqual(currentValue);
+					expect(settings.getS(settingName)).toEqual(currentValue);
+				}
 			} finally {
-				atom.config.set('python-linters.lintTrigger', originalLintTrigger);
-			}
-		}
-	});
-
-	it('Should reflect Atom setting python-linters > useFlake8 … changes to internal settings.js', () => {
-		const originalUseFlake8 = atom.config.get('python-linters.useLintTool.flake8');
-		for (const currentUse of [true, false]) {
-			try {
-				atom.config.set('python-linters.useLintTool.flake8', currentUse);
-				const settings = require('../lib/settings.js');
-				expect(settings.rawLintWithFlake8).toBe(currentUse);
-			} finally {
-				atom.config.set('python-linters.useLintTool.flake8', originalUseFlake8);
-			}
-		}
-	});
-
-	it('Should reflect Atom setting python-linters > useMypy … changes to internal settings.js', () => {
-		const originalUseMypy = atom.config.get('python-linters.useLintTool.mypy');
-		for (const currentUse of [true, false]) {
-			try {
-				atom.config.set('python-linters.useLintTool.mypy', currentUse);
-				const settings = require('../lib/settings.js');
-				expect(settings.rawLintWithMypy).toBe(currentUse);
-			} finally {
-				atom.config.set('python-linters.useLintTool.mypy', originalUseMypy);
-			}
-		}
-	});
-
-	it('Should reflect Atom setting python-linters > usePydocstyle … changes to internal settings.js', () => {
-		const originalPydocstyles = atom.config.get('python-linters.useLintTool.pydocstyle');
-		for (const currentUse of [true, false]) {
-			try {
-				atom.config.set('python-linters.useLintTool.pydocstyle', currentUse);
-				const settings = require('../lib/settings.js');
-				expect(settings.rawLintWithPydocstyle).toBe(currentUse);
-			} finally {
-				atom.config.set('python-linters.useLintTool.pydocstyle', originalPydocstyles);
-			}
-		}
-	});
-
-	it('Should reflect Atom setting python-linters > usePylint … changes to internal settings.js', () => {
-		const originalUsePylint = atom.config.get('python-linters.useLintTool.pylint');
-		for (const currentUse of [true, false]) {
-			try {
-				atom.config.set('python-linters.useLintTool.pylint', currentUse);
-				const settings = require('../lib/settings.js');
-				expect(settings.rawLintWithPylint).toBe(currentUse);
-			} finally {
-				atom.config.set('python-linters.useLintTool.pylint', originalUsePylint);
+				atom.config.set(settingName, originalValue);
 			}
 		}
 	});

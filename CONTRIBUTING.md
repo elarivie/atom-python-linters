@@ -11,7 +11,7 @@ A Makefile which provide recurring actions shortcut is present at the root of th
 You can call 'make' without target name to get a list and description of available actions.
 
 ## Project structure
-* **./index.js**
+* **./lib/main.js**
 	* Project entry point
 	* Should be kept as slim as possible
 * **./lib/***
@@ -29,7 +29,7 @@ There are no restriction about the development environment to use but You should
 * apm install [editorconfig](https://atom.io/packages/editorconfig)
 * apm install [linter-xo](https://atom.io/packages/linter-xo)
 
-You should then use:
+You should then use the command:
 
 		make develop
 
@@ -37,7 +37,7 @@ This last command will launch an atom editor in development mode, with the proje
 
 	View > Developer> Run Package Specs
 
-**Note:** You will have to close atom and redo 'make develop' to reload your latest changes to ./index.js and ./lib/*
+**Note:** You will have to close atom and redo 'make develop' to reload your latest changes to ./lib/*
 
 
 When developing you should adhere to the rules defined within [.editorconfig](./.editorconfig), the lint tool and existing unit‑test must pass.
