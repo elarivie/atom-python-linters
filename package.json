@@ -1,7 +1,7 @@
 {
 	"name": "python-linters",
 	"main": "./lib/main.js",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "This package is a All-In-One linter for python code, it internally use multiple linting tools",
 	"license": "MIT",
 	"repository": "https://github.com/elarivie/atom-python-linters",
@@ -64,8 +64,19 @@
 		],
 		"rules": {
 			"no-constant-condition": "off",
-			"yoda": ["error", "always", { "onlyEquality": false }],
-			"no-unused-vars": ["warn", { "args": "none" }],
+			"yoda": [
+				"error",
+				"always",
+				{
+					"onlyEquality": false
+				}
+			],
+			"no-unused-vars": [
+				"warn",
+				{
+					"args": "none"
+				}
+			],
 			"no-await-in-loop": "off",
 			"import/prefer-default-export": "off",
 			"max-nested-callbacks": "off",
