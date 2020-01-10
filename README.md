@@ -4,6 +4,8 @@
 **KISS solution to lint python code within Atom.**
 
 [![repo status Active](https://www.repostatus.org/badges/latest/active.svg "repo status Active")](https://www.repostatus.org/#active)
+[![last commit](https://img.shields.io/github/last-commit/elarivie/atom-python-linters)](https://github.com/elarivie/atom-python-linters/commits/master)
+
 [![python-linters_BugTracker](https://img.shields.io/github/issues/elarivie/atom-python-linters.svg)][python-linters_BugTracker]
 [![Build Status](https://travis-ci.org/elarivie/atom-python-linters.svg?branch=master)](https://travis-ci.org/elarivie/atom-python-linters)
 

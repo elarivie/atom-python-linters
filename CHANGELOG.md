@@ -6,10 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+-  URL to pylint lint messages
+
+### Changed
+- Improve highlighting position.
+
 ## [Released] - 0.0.2 2020-01-10
 
 ### Fixed
-- A typo in the Edit package setting url
+- A typo in the Edit package setting URL
+
 
 ## [Released] - 0.0.1 2020-01-08
 

@@ -10,6 +10,8 @@ X = lambda: 1
 
 
 def one() -> int:
-    """One"""
+    """One.
+
+    """
     return one
     return 1
