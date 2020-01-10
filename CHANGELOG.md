@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [Released] - 0.0.2 2020-01-10
+
+### Fixed
+- A typo in the Edit package setting url
+
 ## [Released] - 0.0.1 2020-01-08
 
 ### Added

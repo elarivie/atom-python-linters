@@ -3,6 +3,7 @@
 APM=apm
 CAT=cat
 CUT=cut
+ECHO=echo
 GIT=git
 GREP=grep
 ATOM=atom

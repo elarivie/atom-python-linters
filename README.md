@@ -1,9 +1,11 @@
-Atom-Python-Linters
+[Atom-Python-Linters](https://atom.io/packages/python-linters)
 ===================
 
-[![repo status Active](https://www.repostatus.org/badges/latest/active.svg "repo status Active")](https://www.repostatus.org/#active)
-
 **KISS solution to lint python code within Atom.**
+
+[![repo status Active](https://www.repostatus.org/badges/latest/active.svg "repo status Active")](https://www.repostatus.org/#active)
+[![python-linters_BugTracker](https://img.shields.io/github/issues/elarivie/atom-python-linters.svg)][python-linters_BugTracker]
+[![Build Status](https://travis-ci.org/elarivie/atom-python-linters.svg?branch=master)](https://travis-ci.org/elarivie/atom-python-linters)
 
 This [atom][atom homepage] package is a All-In-One linter for [python][python homepage] code, it internally use multiple linting tools:
 
@@ -45,3 +47,5 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 [mypy homepage]: http://www.mypy-lang.org/
 [pydocstyle homepage]: https://pypi.org/project/pydocstyle/
 [pylint homepage]: https://www.pylint.org/
+
+[python-linters_BugTracker]: https://github.com/elarivie/atom-python-linters/issues
