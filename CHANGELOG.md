@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [Released] - 0.0.3 2020-01-14
+
 ### Added
 
 -  URL to pylint lint messages
