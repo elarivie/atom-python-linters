@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [Released] - 0.0.4 2020-01-21
+
+### Fixed
+- Detection of error message about outdated lint tool
+
 ## [Released] - 0.0.3 2020-01-14
 
 ### Added

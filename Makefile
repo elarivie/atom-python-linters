@@ -2,6 +2,7 @@
 
 APM=apm
 ATOM=atom
+CAT=cat
 CUT=cut
 ECHO=echo
 GIT=git
@@ -12,7 +13,7 @@ SED=sed
 SORT=sort
 UNIQ=uniq
 
-THENAME=$(file < NAME);
++THENAME:=$(shell $(CAT) NAME)
 
 
 .PHONY: clean
