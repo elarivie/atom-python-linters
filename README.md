@@ -16,12 +16,20 @@ This [atom][atom homepage] package is a All-In-One linter for [python][python ho
 - [pydocstyle][pydocstyle homepage]
 - [pylint][pylint homepage]
 
-To keep it simple, the only supported configuration file format is setup.cfg <a href="http://renesd.blogspot.com/2017/02/setupcfg-solution-to-python-config-file.html">which is supported by all of the above lint tool</a>.
+The lint triggers of all of those linting tools can individually be configure to
+* `Lint as you type`
+* `Lint on file save`
+* `Never`
+
+You don't need to install all of those lint tool if you don't want/need them.  If any of the above lint tool is not install, it will be detected and a user friendly message will guide you to either install it or change its lint trigger to 'Never'.
+
+To provide specific lint options, python-linters supports setup.cfg configuration file format <a href="http://renesd.blogspot.com/2017/02/setupcfg-solution-to-python-config-file.html">which is supported by all of the above lint tool</a>.
+
+Having lint options in a file external to the IDE settings allows to share the configuration with other process like manual run or CI and therefore obtain consistent lint results.
 
 ## Prerequisites
 
 - [atom](https://atom.io/) must be installed which will provide the apm command aka *Atom Package Manager*.
-
 
 ## Installation steps
 
@@ -34,6 +42,9 @@ Use the following atom linting packages:
 - https://atom.io/packages/linter-mypy
 - https://atom.io/packages/linter-pydocstyle
 - https://atom.io/packages/linter-pylint
+
+**Note:** You can use any of the above alternate linting packages in parallel with python-linters.
+In which case you should set their lint trigger setting to `Never` to avoid double processing.
 
 ## ⚖️ License
 

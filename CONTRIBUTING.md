@@ -25,7 +25,7 @@ You can call 'make' without target name to get a list and description of availab
 
 ### Development environment
 
-There are no restriction about the development environment to use but You should use the [atom](https://atom.io/) editor with the following package:
+There are no restriction about the development environment to use but you should use the [atom](https://atom.io/) editor with the following package:
 * apm install [editorconfig](https://atom.io/packages/editorconfig)
 * apm install [linter-xo](https://atom.io/packages/linter-xo)
 
