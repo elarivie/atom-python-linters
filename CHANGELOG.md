@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## Fixed
+- Correctly handle a pydocstyle crash on invalid syntax
+
 ## [Released] - 0.0.4 2020-01-21
 
 ### Fixed
