@@ -1,7 +1,7 @@
 {
 	"name": "python-linters",
 	"main": "./lib/main.js",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "This package is a All-In-One linter for python code, it internally use multiple linting tools",
 	"license": "MIT",
 	"repository": "https://github.com/elarivie/atom-python-linters",
